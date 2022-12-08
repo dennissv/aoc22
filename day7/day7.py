@@ -34,10 +34,8 @@ class Folder:
 
 root = Folder('/', None)
 pwd = root
-line_count = 0
 with open('../input/day7.in') as f:
     for line in f.readlines()[2:]:
-        line_count += 1
         line = line.rstrip()
         if line.startswith('$'):
             if line.startswith('$ cd'):
