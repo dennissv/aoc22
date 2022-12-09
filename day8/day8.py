@@ -21,10 +21,10 @@ class Grid:
         row = self.grid[y]
         column = [row[x] for row in self.grid]
         directions = [row[:x][::-1], row[x+1:], column[:y][::-1], column[y+1:]]
-        part1 =  max(max(direction) < v for direction in directions)
-        part2 = math.prod(self._viewing_distance(direction, v) for direction in directions)
-        return part1, part2
-    
+        p1 =  max(max(direction) < v for direction in directions)
+        p2 = math.prod(self._viewing_distance(direction, v) for direction in directions)
+        return p1, p2
+
     def _viewing_distance(self, trees, v):
         for i, x in enumerate(trees, start=1):
             if x >= v:
