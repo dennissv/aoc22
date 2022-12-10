@@ -30,14 +30,14 @@ class Rope:
         self.visited = set()
 
     def step(self, direction):
-        self.move_head(direction)
-        self.move_tails()
-        self.save_tail_position()
+        self._move_head(direction)
+        self._move_tails()
+        self._save_tail_position()
 
-    def move_head(self, direction):
+    def _move_head(self, direction):
         self.knots[0] += self.direction_dict[direction]
 
-    def move_tails(self):
+    def _move_tails(self):
         for i in range(1, len(self.knots)):
             dx, dy = self._distance(i)
             if (abs(dx) == 2) or (abs(dy) == 2):
@@ -50,7 +50,7 @@ class Rope:
                 elif self.knots[i].y > self.knots[i-1].y:
                     self.knots[i].y -= 1
 
-    def save_tail_position(self):
+    def _save_tail_position(self):
         self.visited.add(self.knots[-1].as_string())
 
     def _distance(self, i):
