@@ -14,6 +14,7 @@ class Computer:
         self.during = [1]
         
         with open(file_path) as f:
+            self.instructions = [line.strip().split() for line in f]
     
     def step(self, instruction):
         command = instruction[0]
