@@ -28,9 +28,10 @@ class Computer:
         self.cycle += 1
 
     def addx(self, v):
+        self._save_state()
         self.cycle += 1
         self._save_state()
-        self._save_state()
+        self.cycle += 1
         self.x += v
     
     def draw(self):
