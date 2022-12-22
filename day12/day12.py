@@ -19,7 +19,7 @@ def find_climbable(myPos):
     y = myPos.y
     climbable = []
     myLevel = c2i(grid[y][x])
-    if myPos.x > 0:
+    if myPos.x:
         if myLevel + 1 >= c2i(grid[y][x-1]) and not distances[y][x-1]:
             climbable.append(Position(x-1, y))
             distances[y][x-1] = dist
@@ -27,7 +27,7 @@ def find_climbable(myPos):
         if myLevel + 1 >= c2i(grid[y][x+1]) and not distances[y][x+1]:
             climbable.append(Position(x+1, y))
             distances[y][x+1] = dist
-    if myPos.y > 0:
+    if myPos.y:
         if myLevel + 1 >= c2i(grid[y-1][x]) and not distances[y-1][x]:
             climbable.append(Position(x, y-1))
             distances[y-1][x] = dist
